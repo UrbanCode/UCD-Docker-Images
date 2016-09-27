@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-function startContainer(){
+startContainer () {
     echo "Starting a container from the image $IMAGE$VERSION"
     CONTAINER_ID=$(docker run -dt $IMAGE$VERSION)
     if [ -z $CONTAINER_ID ]; then
@@ -22,7 +22,7 @@ function startContainer(){
     echo "Created Container: $CONTAINER_ID"
 }
 
-function stopContainer(){
+stopContainer () {
     echo "Stopping Container: $CONTAINER_ID"
     docker stop $CONTAINER_ID &> /dev/null
     docker rm $CONTAINER_ID &> /dev/null
