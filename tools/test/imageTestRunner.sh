@@ -29,7 +29,7 @@ stopContainer () {
 }
 
 #Parse args
-while [[ $# -gt 1 ]]
+while [ $# -gt 1 ]
 do
     key="$1"
 
