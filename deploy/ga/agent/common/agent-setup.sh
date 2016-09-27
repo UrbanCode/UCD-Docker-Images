@@ -21,9 +21,6 @@
 timestamp=$(date)
 echo "Started building ucda container image at $timestamp."
 
-cp /etc/resolv.conf /etc/resolv.conf.bak
-echo "nameserver 9.0.128.50" >/etc/resolv.conf
-
 if [ "x$ucdInstallImageUrl" = "x" ]; then
     echo "No UCD install image URL specified. Looking in /tmp for install image."
 else
@@ -44,9 +41,6 @@ else
     echo "No install image found. /tmp/ibm-ucd*.zip"
     exit 1
 fi
-
-cat  /etc/resolv.conf.bak > /etc/resolv.conf
-rm /etc/resolv.conf.bak
 
 #set install properties and install the agent
 cat /tmp/install.properties >> /tmp/ibm-ucd-agent-install/install.properties

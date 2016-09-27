@@ -17,9 +17,6 @@
 # ucdInstallImageUrl= The URL of the install image zip file, or null if your build has already placed it in /tmp
 # credentials= The userid:password needed to download $ucdInstallImageUrl, or null if none needed.
 
-cp /etc/resolv.conf /etc/resolv.conf.bak
-echo "nameserver 9.0.128.50" >/etc/resolv.conf
-
 if [ -z "$ucdInstallImageUrl"  ]; then
     echo "No UCD install image URL specified. Looking in /tmp for install image."
 else
@@ -42,9 +39,6 @@ else
     echo "No install image found. /tmp/agent-relay*.zip"
     exit 1
 fi
-
-cat  /etc/resolv.conf.bak > /etc/resolv.conf
-rm /etc/resolv.conf.bak
 
 # set install properties and install the relay (these can also be specified at runtime)
 cat /tmp/supplemental-install.properties >>/tmp/agent-relay-install/install.properties
