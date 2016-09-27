@@ -1,5 +1,2 @@
-ucds:6.2.2-websphere       ./deploy/ga/plugins/websphere
-ucds:windows               ./deploy/ga/plugins/windows
-ucds:docker                ./deploy/ga/plugins/docker
-ucda:6.2.2.0               ./deploy/ga/agent http://public.dhe.ibm.com/software/products/UrbanCode/Deploy/6.2.2.0/ibm-ucd-agent-6.2.2.0.825094.zip
-ucdr:6.2.2.0               ./deploy/ga/relay http://public.dhe.ibm.com/software/products/UrbanCode/Deploy/6.2.2.0/agent-relay-6.2.2.0.825523.zip
+ucda:6.2.2.0    ./deploy/ga/agent       http://public.dhe.ibm.com/software/products/UrbanCode/Deploy/6.2.2.0/ibm-ucd-agent-6.2.2.0.825094.zip
+ucdr:6.2.2.0    ./deploy/ga/relay       http://public.dhe.ibm.com/software/products/UrbanCode/Deploy/6.2.2.0/agent-relay-6.2.2.0.825523.zip
