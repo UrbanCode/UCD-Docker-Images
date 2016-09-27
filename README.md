@@ -1,5 +1,5 @@
 This project contains build scripts and Docker related utilities for creating Docker images (Dockerfiles) of UrbanCode Deploy.
-
+[![Build Status](https://travis-ci.org/IBM-UrbanCode/UCD-Docker-Images.svg?branch=master)](https://travis-ci.org/IBM-UrbanCode/UCD-Docker-Images)
 
 # Issues and contributions
 
