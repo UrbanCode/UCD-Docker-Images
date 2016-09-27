@@ -35,9 +35,9 @@ do
   TAG=$(echo $imageName | sed "s/^.*://g")
 
   if [ $IMAGE == "ibmcom/ucdr" ]; then
-    ./tools/imageTestRunner.sh -i $IMAGE -t $TAG -s "agentrelay"
+    ./tools/test/imageTestRunner.sh -i $IMAGE -t $TAG -s "agentrelay"
   else
-    ./tools/imageTestRunner.sh -i $IMAGE -t $TAG -s "ibm-ucd"
+    ./tools/test/imageTestRunner.sh -i $IMAGE -t $TAG -s "ibm-ucd"
   fi
 
 
