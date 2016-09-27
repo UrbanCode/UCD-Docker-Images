@@ -7,3 +7,6 @@ services:
 
 script:
 - bash  buildAll.sh
+
+after_success:
+  - bash publishAll.sh
