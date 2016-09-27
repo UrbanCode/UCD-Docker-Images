@@ -24,7 +24,6 @@
 image=$1
 dloc=$2
 url=$3
-logname=$(echo $image | sed s/:/-/g)
 
 if [ $# -lt 2 ]
 then
@@ -42,7 +41,7 @@ echo "*************************************************************************"
 echo "           Starting docker build for $image                              "
 echo
 
-docker build --no-cache=true -t $image $url $dloc > logs/build_$logname.log
+docker build --no-cache=true -t $image $url $dloc
 
 if [ $? = 0 ]
 then
