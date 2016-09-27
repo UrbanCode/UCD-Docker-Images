@@ -17,4 +17,4 @@ if [ -z $VERSION ]; then
     VERSION="latest"
 fi
 
-./imageTestRunner.sh -i ucdr -t $VERSION -s "agentrelay"
+./imageTestRunner.sh -i ibmcom/ucdr -t $VERSION -s "agentrelay"

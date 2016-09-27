@@ -17,4 +17,4 @@ if [ -z $VERSION ]; then
     VERSION="latest"
 fi
 
-./imageTestRunner.sh -i ucda -t $VERSION -s "ibm-ucd/agent"
+./imageTestRunner.sh -i ibmcom/ucda -t $VERSION -s "ibm-ucd/agent"

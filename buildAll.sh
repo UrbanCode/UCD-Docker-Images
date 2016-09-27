@@ -31,6 +31,16 @@ do
 
   ./tools/build.sh $imageName $buildContextDirectory $imageURL
 
+  IMAGE=$(echo $imageName | sed "s/:.*//g")
+  TAG=$(echo $imageName | sed "s/^.*://g")
+
+  if [ $IMAGE == "ibmcom/ucdr" ]; then
+    ./tools/imageTestRunner.sh -i $IMAGE -t $TAG -s "agentrelay"
+  else
+    ./tools/imageTestRunner.sh -i $IMAGE -t $TAG -s "ibm-ucd"
+  fi
+
+
   if [ $? != 0 ]; then
     echo "Failed at image $imageName - exiting"
     exit 1
