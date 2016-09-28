@@ -31,8 +31,8 @@ do
 
   ./tools/build.sh "$imageName" "$buildContextDirectory" "$imageURL"
 
-  IMAGE=$(echo $imageName | sed "s/:.*//g" | sed "s/^.*\///g")
-  TAG=$(echo $imageName | sed "s/^.*://g")
+  IMAGE=$(sed "s/:.*//g" <<< "$imageName" | sed "s/^.*\///g")
+  TAG=$(sed "s/^.*://g" <<< "$imageName")
 
   ./tools/test/"$IMAGE"_imageTest.sh "$TAG"
 
