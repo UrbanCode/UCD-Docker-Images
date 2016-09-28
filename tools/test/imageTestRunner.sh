@@ -57,7 +57,6 @@ do
 done
 
 #Read the args
-#IMAGE="$1"
 if [ -z $IMAGE ]; then
     echo "Usage: ./testUCDContainer.sh -i IMAGE_NAME [-t IMAGE_TAG] [-s SEARCH_PROCESS]"
     exit 1;
