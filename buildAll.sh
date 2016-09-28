@@ -29,20 +29,15 @@ do
     imageURL="--build-arg=ucdInstallImageUrl=$imageURL"
   fi
 
-  ./tools/build.sh $imageName $buildContextDirectory $imageURL
+  ./tools/build.sh "$imageName" "$buildContextDirectory" "$imageURL"
 
-  IMAGE=$(echo $imageName | sed "s/:.*//g")
+  IMAGE=$(echo $imageName | sed "s/:.*//g" | sed "s/^.*\///g")
   TAG=$(echo $imageName | sed "s/^.*://g")
 
-  if [ $IMAGE == "ibmcom/ucdr" ]; then
-    ./tools/test/imageTestRunner.sh -i $IMAGE -t $TAG -s "agentrelay"
-  else
-    ./tools/test/imageTestRunner.sh -i $IMAGE -t $TAG -s "ibm-ucd"
-  fi
-
+  ./tools/test/"$IMAGE"_imageTest.sh "$TAG"
 
   if [ $? != 0 ]; then
-    echo "Failed at image $imageName - exiting"
+    echo "Failed at image "$imageName" - exiting"
     exit 1
   fi
 

@@ -12,9 +12,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+# Path correction for imageTestRunner based on execution location
+PWD=$(dirname "$0")
+
 VERSION="$1"
-if [ -z $VERSION ]; then
+if [ -z "$VERSION" ]; then
     VERSION="latest"
 fi
 
-./imageTestRunner.sh -i ibmcom/ucdr -t $VERSION -s "agentrelay"
+"$PWD"/imageTestRunner.sh -i ibmcom/ucda -t "$VERSION" -s "ibm-ucd/agent"
