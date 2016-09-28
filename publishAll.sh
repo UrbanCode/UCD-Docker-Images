@@ -17,22 +17,25 @@
 #  Script to pubish all the urbancode Docker images                            #
 #                                                                              #
 #                                                                              #
-#  Usage : publishAll.sh							                           #
+#  Usage : publishAll.sh			                               #
 #                                                                              #
 ################################################################################
 
-docker login -u $dockerhubid -p $dockerhubpw
+if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+  docker login -u $dockerhubid -p $dockerhubpw
 
-while read -r imageName buildContextDirectory imageURL
-do
-  echo "process $imageName"
+  while read -r imageName buildContextDirectory imageURL
+  do
+    echo "process $imageName"
 
-  if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker push $imageName
-    LATEST=$(echo $imageName |sed "s/:.*/:latest/g")
-    docker tag $imageName $LATEST
-    docker push $LATEST
-  fi
-done < "images.txt"
+    if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker push $imageName
+      LATEST=$(echo $imageName |sed "s/:.*/:latest/g")
+      docker tag $imageName $LATEST
+      docker push $LATEST
+    fi
+  done < "images.txt"
 
-docker logout
+  docker logout
+fi
+
