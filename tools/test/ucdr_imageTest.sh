@@ -14,12 +14,11 @@
 # limitations under the License.
 
 # Path correction for imageTestRunner based on execution location
-PWD=$(dirname $0)
-echo $PWD
+PWD=$(dirname "$0")
 
 VERSION="$1"
-if [ -z $VERSION ]; then
+if [ -z "$VERSION" ]; then
     VERSION="latest"
 fi
 
-$PWD/imageTestRunner.sh -i ibmcom/ucdr -t $VERSION -s "agentrelay"
+"$PWD"/imageTestRunner.sh -i ibmcom/ucdr -t "$VERSION" -s "agentrelay"

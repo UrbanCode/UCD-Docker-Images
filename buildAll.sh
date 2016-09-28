@@ -29,15 +29,15 @@ do
     imageURL="--build-arg=ucdInstallImageUrl=$imageURL"
   fi
 
-  ./tools/build.sh $imageName $buildContextDirectory $imageURL
+  ./tools/build.sh "$imageName" "$buildContextDirectory" "$imageURL"
 
   IMAGE=$(echo $imageName | sed "s/:.*//g" | sed "s/^.*\///g")
   TAG=$(echo $imageName | sed "s/^.*://g")
 
-  ./tools/test/"$IMAGE"_imageTest.sh $TAG
+  ./tools/test/"$IMAGE"_imageTest.sh "$TAG"
 
   if [ $? != 0 ]; then
-    echo "Failed at image $imageName - exiting"
+    echo "Failed at image "$imageName" - exiting"
     exit 1
   fi
 
