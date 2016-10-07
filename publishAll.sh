@@ -32,7 +32,8 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; th
     if [ -n "$imageURL" ]; then
       LATEST=$(sed "s/:.*/:latest/g" <<< "$imageName")
       docker tag "$imageName" "$LATEST"
-      echo "push $LATEST"
+
+      echo "process $LATEST"
       docker push "$LATEST"
     fi
   done < "images.txt"
