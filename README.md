@@ -6,6 +6,7 @@ This project contains build scripts and Docker related utilities for creating Do
 For issues relating specifically to the Dockerfiles and scripts, please use the [GitHub issue tracker](https://github.com/IBM-UrbanCode/UCD-Docker-Images/issues).
 
 # Docker builds of the following images:
+  - [UCD Server](https://hub.docker.com/r/ibmcom/ucds/)
   - [UCD Agent](https://hub.docker.com/r/ibmcom/ucda/)
   - [UCD Relay](https://hub.docker.com/r/ibmcom/ucdr/)
 
