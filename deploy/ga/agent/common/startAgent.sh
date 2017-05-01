@@ -19,8 +19,8 @@ sed -i '/agent.name/d' /opt/ibm-ucd/agent/conf/agent/installed.properties
 
 #Setting agent.name to "agent-<hostname_of_container>"
 #Setting the agent.id to "" so that id is auto generated during start
-echo "locked/agent.name=agent-"$HOSTNAME >> /opt/ibm-ucd/agent/conf/agent/installed.properties
-echo "locked/agent.id=" >> /opt/ibm-ucd/agent/conf/agent/installed.properties
+echo "locked/agent.name="$NAME >> /opt/ibm-ucd/agent/conf/agent/installed.properties
+echo "locked/agent.id="$NAME >> /opt/ibm-ucd/agent/conf/agent/installed.properties
 
 echo "Starting the agent now"
 /opt/ibm-ucd/agent/bin/agent run

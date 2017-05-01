@@ -20,6 +20,8 @@ services:
       - 7918:7918
   ucd-agent:
     image: ibmcom/ucda
+    environment:
+      - NAME=ucda-docker
     depends_on:
       - ucd-server
       - ucd-relay
