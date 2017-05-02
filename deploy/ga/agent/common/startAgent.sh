@@ -17,10 +17,17 @@
 sed -i '/agent.id/d' /opt/ibm-ucd/agent/conf/agent/installed.properties
 sed -i '/agent.name/d' /opt/ibm-ucd/agent/conf/agent/installed.properties
 
+agentName="agent-"$HOSTNAME
+agentId=""
+if [ $AGENT_NAME ]; then
+    agentName=$AGENT_NAME
+    agentId=$AGENT_NAME
+fi
+
 #Setting agent.name to "agent-<hostname_of_container>"
 #Setting the agent.id to "" so that id is auto generated during start
-echo "locked/agent.name="$NAME >> /opt/ibm-ucd/agent/conf/agent/installed.properties
-echo "locked/agent.id="$NAME >> /opt/ibm-ucd/agent/conf/agent/installed.properties
+echo "locked/agent.name="$agentName >> /opt/ibm-ucd/agent/conf/agent/installed.properties
+echo "locked/agent.id="$agentId >> /opt/ibm-ucd/agent/conf/agent/installed.properties
 
 echo "Starting the agent now"
 /opt/ibm-ucd/agent/bin/agent run
